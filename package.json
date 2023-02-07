@@ -1,0 +1,22 @@
+{
+  "name": "sauce_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/driuzzo/sauce_demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/driuzzo/sauce_demo/issues"
+  },
+  "homepage": "https://github.com/driuzzo/sauce_demo#readme",
+  "devDependencies": {
+    "cypress": "^12.5.1"
+  }
+}
