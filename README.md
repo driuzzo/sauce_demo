@@ -11,13 +11,16 @@ git clone https://github.com/driuzzo/sauce_demo.git
 ```
 
 Instale as dependências
-    ```bash
-npm install```
+```bash
+npm install
+```
 
 Execute o cypress
-    ```bash
-npx cypress open```
+```bash
+npx cypress open
+```
 
 Execute o script de teste
-    ```bash
-sauce_demo.cy.js```
+```bash
+sauce_demo.cy.js
+```
