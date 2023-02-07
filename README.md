@@ -1,6 +1,6 @@
 # sauce_demo
 
-Projeto de automação num num e-commerce de testes para portfólio pessoal.
+Projeto de automação num e-commerce de testes para portfólio pessoal.
 
 Website utilizado: [sauce_demo](http://saucedemo.com/)
 

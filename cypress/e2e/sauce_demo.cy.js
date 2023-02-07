@@ -3,6 +3,8 @@ describe('sauce demo spec', () => {
   context('login', () => {
 
     const loginFailMessage = 'Epic sadface: Username and password do not match any user in this service'
+    const usernameRequiredMessage = 'Epic sadface: Username is required'
+    const passwordRequiredMessage = 'Epic sadface: Password is required'
 
     beforeEach(() => {
       cy.visit('/')
@@ -48,5 +50,33 @@ describe('sauce demo spec', () => {
         .should('be.visible')
         .and('have.text', loginFailMessage)
     })
+
+    it('should require username', () => {
+
+      cy.get('#password')
+        .type('secret_sauce')
+  
+      cy.get('#login-button')
+        .should('be.visible')
+        .click()
+
+      cy.get('[data-test="error"]')
+        .should('be.visible')
+        .and('have.text', usernameRequiredMessage)
+    })
+
+    it('should require password', () => {
+
+      cy.get('#user-name')
+        .type('standard_user')
+  
+      cy.get('#login-button')
+        .should('be.visible')
+        .click()
+
+      cy.get('[data-test="error"]')
+        .should('be.visible')
+        .and('have.text', passwordRequiredMessage)
   })
+})
 })
