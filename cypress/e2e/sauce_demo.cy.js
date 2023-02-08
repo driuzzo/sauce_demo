@@ -5,6 +5,7 @@ describe('sauce demo spec', () => {
     const loginFailMessage = 'Epic sadface: Username and password do not match any user in this service'
     const usernameRequiredMessage = 'Epic sadface: Username is required'
     const passwordRequiredMessage = 'Epic sadface: Password is required'
+    const lockedOutUserMessage = 'Epic sadface: Sorry, this user has been locked out.'
 
     beforeEach(() => {
       cy.visit('/')
@@ -60,6 +61,9 @@ describe('sauce demo spec', () => {
         .should('be.visible')
         .click()
 
+      cy.get('#user-name')
+        .should('have.css', 'border-bottom-color', 'rgb(226, 35, 26)')
+
       cy.get('[data-test="error"]')
         .should('be.visible')
         .and('have.text', usernameRequiredMessage)
@@ -74,9 +78,24 @@ describe('sauce demo spec', () => {
         .should('be.visible')
         .click()
 
+      cy.get('#password')
+        .should('have.css', 'border-bottom-color', 'rgb(226, 35, 26)')
+
       cy.get('[data-test="error"]')
         .should('be.visible')
         .and('have.text', passwordRequiredMessage)
   })
+
+    it('should fail login to locked user', () => {
+      cy.login('locked_out_user', 'secret_sauce')
+  
+      cy.get('#login-button')
+        .should('be.visible')
+        .click()
+
+      cy.get('[data-test="error"]')
+        .should('be.visible')
+        .and('have.text', lockedOutUserMessage)
+    })
 })
 })
