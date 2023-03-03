@@ -1,6 +1,4 @@
-describe('sauce demo spec', () => {
-  
-  context('login', () => {
+describe('login scenarios', () => {
 
     const loginFailMessage = 'Epic sadface: Username and password do not match any user in this service'
     const usernameRequiredMessage = 'Epic sadface: Username is required'
@@ -15,10 +13,6 @@ describe('sauce demo spec', () => {
   
       cy.login('standard_user', 'secret_sauce')
   
-      cy.get('#login-button')
-        .should('be.visible')
-        .click()
-  
       cy.textAssertionOfElement('.title', 'Products')
   
       cy.get('.inventory_list')
@@ -29,10 +23,6 @@ describe('sauce demo spec', () => {
     it('should fail login with wrong username', () => {
       
       cy.login('test', 'secret_sauce')
-  
-      cy.get('#login-button')
-        .should('be.visible')
-        .click()
 
       cy.get('[data-test="error"]')
         .should('be.visible')
@@ -42,10 +32,6 @@ describe('sauce demo spec', () => {
     it('should fail login with wrong password', () => {
       
       cy.login('standard_user', 'test')
-  
-      cy.get('#login-button')
-        .should('be.visible')
-        .click()
 
       cy.get('[data-test="error"]')
         .should('be.visible')
@@ -88,14 +74,9 @@ describe('sauce demo spec', () => {
 
     it('should fail login to locked user', () => {
       cy.login('locked_out_user', 'secret_sauce')
-  
-      cy.get('#login-button')
-        .should('be.visible')
-        .click()
 
       cy.get('[data-test="error"]')
         .should('be.visible')
         .and('have.text', lockedOutUserMessage)
     })
-})
 })
