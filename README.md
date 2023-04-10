@@ -1,8 +1,8 @@
 # sauce_demo
 
-Projeto de automação num e-commerce de testes para portfólio pessoal.
+Projeto de automação no e-commerce de testes da Swag Labs.
 
-Website utilizado: [sauce_demo](http://saucedemo.com/)
+Website utilizado: [SauceDemo](http://saucedemo.com/)
 
 Clone o projeto
 
