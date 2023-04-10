@@ -1,13 +1,14 @@
-Cypress.Commands.add('login', (email, password) => { 
-    cy.get('#user-name')
-        .type(email)
+Cypress.Commands.add('login', (email, password) => {   
+        cy.visit('/')
+        cy.get('#user-name')
+            .type(email)
 
-    cy.get('#password')
-        .type(password)
+        cy.get('#password')
+            .type(password)
 
-    cy.get('#login-button')
-        .should('be.visible')
-        .click()
+        cy.get('#login-button')
+            .should('be.visible')
+            .click()
 })
 
 Cypress.Commands.add('textAssertionOfElement', (element, text) => { 

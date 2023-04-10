@@ -24,7 +24,7 @@ describe('login scenarios', () => {
       
       cy.login('test', 'secret_sauce')
 
-      cy.get('[data-test="error"]')
+      cy.getByData('error')
         .should('be.visible')
         .and('have.text', loginFailMessage)
     })
@@ -33,7 +33,7 @@ describe('login scenarios', () => {
       
       cy.login('standard_user', 'test')
 
-      cy.get('[data-test="error"]')
+      cy.getByData('error')
         .should('be.visible')
         .and('have.text', loginFailMessage)
     })
@@ -47,10 +47,10 @@ describe('login scenarios', () => {
         .should('be.visible')
         .click()
 
-      cy.get('#user-name')
-        .should('have.css', 'border-bottom-color', 'rgb(226, 35, 26)')
+      cy.get('#user-name').then($el => $el.css('border-bottom-color'))
+        .should('be.colored', '#E2231A')
 
-      cy.get('[data-test="error"]')
+      cy.getByData('error')
         .should('be.visible')
         .and('have.text', usernameRequiredMessage)
     })
@@ -64,10 +64,10 @@ describe('login scenarios', () => {
         .should('be.visible')
         .click()
 
-      cy.get('#password')
-        .should('have.css', 'border-bottom-color', 'rgb(226, 35, 26)')
+      cy.get('#password').then($el => $el.css('border-bottom-color'))
+        .should('be.colored', '#E2231A')
 
-      cy.get('[data-test="error"]')
+      cy.getByData('error')
         .should('be.visible')
         .and('have.text', passwordRequiredMessage)
   })
@@ -75,8 +75,26 @@ describe('login scenarios', () => {
     it('should fail login to locked user', () => {
       cy.login('locked_out_user', 'secret_sauce')
 
-      cy.get('[data-test="error"]')
+      cy.getByData('error')
         .should('be.visible')
         .and('have.text', lockedOutUserMessage)
+    })
+
+    it('should logout successfully', () => {
+  
+      cy.login('standard_user', 'secret_sauce')
+
+      cy.textAssertionOfElement('.title', 'Products')
+
+      cy.get('#react-burger-menu-btn').click()
+
+      cy.get('.bm-menu-wrap').should('be.visible')
+
+      cy.get('#logout_sidebar_link').click()
+
+      cy.location('pathname').should('eq', '/')
+
+      cy.get('.login_logo').should('be.visible')
+
     })
 })

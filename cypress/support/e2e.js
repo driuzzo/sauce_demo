@@ -27,3 +27,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     // failing the test
     return false
   })
+
+var chaiColors = require('chai-colors')
+chai.use(chaiColors)
