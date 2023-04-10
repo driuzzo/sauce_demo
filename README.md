@@ -22,8 +22,4 @@ Execute o cypress
 npx cypress open
 ```
 
-Execute o script de teste
-
-```bash
-sauce_demo.cy.js
-```
+Execute os scripts de teste
