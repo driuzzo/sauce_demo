@@ -22,4 +22,7 @@ Execute o cypress
 npx cypress open
 ```
 
-Execute os scripts de teste
+Executando no modo headless
+```bash
+npx cypress run
+```
