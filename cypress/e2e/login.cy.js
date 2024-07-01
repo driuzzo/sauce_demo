@@ -10,6 +10,11 @@ describe('login scenarios', () => {
     })
 
     it('should login successfully', () => {
+      cy.window().then(win => {
+        const userAgent = win.navigator.userAgent;
+
+        console.log(userAgent)
+      });
   
       cy.login('standard_user', 'secret_sauce')
   

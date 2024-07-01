@@ -19,7 +19,7 @@
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",
     "chai-colors": "^1.0.1",
-    "cypress": "^12.5.1",
+    "cypress": "^12.17.4",
     "cypress-plugin-api": "^2.10.3"
   }
 }
