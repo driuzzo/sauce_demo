@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,13 @@
   },
   "homepage": "https://github.com/driuzzo/sauce_demo#readme",
   "devDependencies": {
+    "@eslint/js": "^9.6.0",
     "@faker-js/faker": "^7.6.0",
     "chai-colors": "^1.0.1",
     "cypress": "^12.17.4",
-    "cypress-plugin-api": "^2.10.3"
+    "cypress-plugin-api": "^2.10.3",
+    "eslint": "^9.6.0",
+    "eslint-plugin-cypress": "^3.3.0",
+    "globals": "^15.8.0"
   }
 }

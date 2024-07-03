@@ -19,3 +19,9 @@ Cypress.Commands.add('textAssertionOfElement', (element, text) => {
 Cypress.Commands.add('getByData', (selector) => {
     return cy.get(`[data-test=${selector}]`)
 })
+
+Cypress.Commands.add('getProductObject', (product) => {
+    cy.get(`.inventory_item_name:contains(${product})`).parents('.inventory_item').then(($productObject) => {
+        cy.wrap($productObject).as('productObject')
+    })
+})
