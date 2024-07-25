@@ -25,7 +25,12 @@ describe('flow scenarios', () => {
     beforeEach(() => {
         const product = products[Math.floor(Math.random() * products.length)]
         cy.wrap(product).as('product')
+      
         cy.login('standard_user', 'secret_sauce')
+
+        cy.on('window:alert', () => {
+          //expect(alertText).to.equal('Texto do alerta esperado');
+        })
     })
 
     viewports.forEach((viewport) => {

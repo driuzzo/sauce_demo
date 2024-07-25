@@ -13,7 +13,7 @@ Cypress.Commands.add('login', (email, password) => {
 
 Cypress.Commands.add('textAssertionOfElement', (element, text) => { 
     cy.get(element)
-    .should('have.text', text)
+      .should('have.text', text)
 })
 
 Cypress.Commands.add('getByData', (selector) => {
@@ -21,7 +21,9 @@ Cypress.Commands.add('getByData', (selector) => {
 })
 
 Cypress.Commands.add('getProductObject', (product) => {
-    cy.get(`.inventory_item_name:contains(${product})`).parents('.inventory_item').then(($productObject) => {
+    cy.get(`.inventory_item_name:contains(${product})`)
+      .parents('.inventory_item')
+      .then(($productObject) => {
         cy.wrap($productObject).as('productObject')
     })
 })

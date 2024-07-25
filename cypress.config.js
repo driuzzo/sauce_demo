@@ -9,6 +9,7 @@ module.exports = defineConfig({
     baseUrl: 'https://www.saucedemo.com',
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      
     },
   },
 });
